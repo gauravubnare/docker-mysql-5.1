@@ -34,4 +34,4 @@ RUN cp /usr/share/mysql/mysql.server /etc/init.d/mysql
 RUN chmod +x /etc/init.d/mysql
 RUN update-rc.d mysql default
 EXPOSE 3306
-ENTRYPOINT /etc/init.d/mysql start ; mysql_secure_installation ; bash
+#ENTRYPOINT /etc/init.d/mysql start ; mysql_secure_installation ; bash
