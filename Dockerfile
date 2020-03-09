@@ -33,5 +33,6 @@ RUN mkdir -p /etc/mysql && mkdir -p /var/lib/mysql && mkdir -p /etc/mysql/conf.d
 RUN cp /usr/share/mysql/mysql.server /etc/init.d/mysql
 RUN chmod +x /etc/init.d/mysql
 RUN update-rc.d mysql default
+VOLUME ['/var/lib/mysql']
 EXPOSE 3306
 #ENTRYPOINT /etc/init.d/mysql start ; mysql_secure_installation ; bash
