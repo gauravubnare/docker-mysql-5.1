@@ -32,7 +32,7 @@ CXXFLAGS="-std=gnu++98" && make && make install
 RUN mkdir -p /etc/mysql && mkdir -p /var/lib/mysql && mkdir -p /etc/mysql/conf.d && echo -e '[mysqld_safe]\nsyslog' > /etc/mysql/conf.d/mysqld_safe_syslog.cnf && cp /usr/share/mysql/my-medium.cnf /etc/mysql/my.cnf && sed -i 's#.*datadir.*#datadir = /var/lib/mysql#g' /etc/mysql/my.cnf && chown mysql:mysql -R /var/lib/mysql && mysql_install_db --user=mysql 
 RUN cp /usr/share/mysql/mysql.server /etc/init.d/mysql
 RUN chmod +x /etc/init.d/mysql
-RUN update-rc.d mysql default
+RUN update-rc.d mysql defaults
 VOLUME ['/var/lib/mysql']
 EXPOSE 3306
-#ENTRYPOINT /etc/init.d/mysql start ; mysql_secure_installation ; bash
+ENTRYPOINT /etc/init.d/mysql start ; mysql_secure_installation ; bash
