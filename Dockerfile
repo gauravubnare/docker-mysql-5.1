@@ -34,5 +34,7 @@ RUN cp /usr/share/mysql/mysql.server /etc/init.d/mysql
 RUN chmod +x /etc/init.d/mysql
 RUN update-rc.d mysql defaults
 VOLUME ['/var/lib/mysql']
+RUN mysql -e "CREATE USER ‘peter’@’%’ IDENTIFIED BY ‘1234’;"
+RUN mysql -e "GRANT ALL PRIVILEGES ON *.* TO ‘peter’@’%’;"
 EXPOSE 3306
 ENTRYPOINT /etc/init.d/mysql start ; mysql_secure_installation ; bash
