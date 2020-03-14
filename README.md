@@ -31,5 +31,5 @@ docker run -it -p 3306:3306 -v mysql-volume:/var/lib/mysql mysql-5.1
 Note: Mounted volume you can found in /var/lib/docker/volume/mysql-volume
 
 ## Once you deploy the container it will run "mysql_secure_installation"
-test
+
 
